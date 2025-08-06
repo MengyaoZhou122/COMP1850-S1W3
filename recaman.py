@@ -1,8 +1,9 @@
 def generate_recaman(n):
     """
-    生成 Recaman 序列
-    :param n: 序列长度包含起始的a0
-    :return: Recaman 序列列表
+    Generate Recaman sequences
+    :param n: The sequence length contains the starting a0
+    :return: list of Recaman sequences
+
     """
     if n <= 0:
         return []
