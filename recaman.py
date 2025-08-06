@@ -1,28 +1,20 @@
-def generate_recaman(n):
-    """
-    Generate Recaman sequences
-    :param n: The sequence length contains the starting a0
-    :return: list of Recaman sequences
+L = int(input("Length of sequence: "))  
+if L <= 0:
+    print("Invalid length")
+else:
+    sequence = [0]  
+    seen = {0}      
 
-    """
-    if n <= 0:
-        return []
-    
-    sequence = [0]
-    seen = {0}
-    
-    for k in range(1, n):
+    for k in range(1, L):
         prev = sequence[-1]
-        candidate = prev - k  
-        
-        if candidate > 0 and candidate not in seen:
-            sequence.append(candidate)
-            seen.add(candidate)
+        next_val = prev - k
+
+        if next_val > 0 and next_val not in seen:
+            sequence.append(next_val)
+            seen.add(next_val)
         else:
-            sequence.append(prev + k)
-            seen.add(prev + k)
-        return sequence
-    if __name__ == "__main__":
-        n = int(input().strip())
-        result = generate_recaman(n)
-        print(" ".join(map(str, result)))
+            next_val = prev + k
+            sequence.append(next_val)
+            seen.add(next_val)
+
+    [print(item) for item in sequence]
